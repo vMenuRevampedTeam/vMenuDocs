@@ -31,7 +31,7 @@ jobs:
           tag_name: v${{ vars.PUBLIC_VERSION }}
           release_name: Release v${{ vars.PUBLIC_VERSION }}
           body: |
-            vMenu Revamped Docs v1
+            ${{ vars.PUBLIC_RELEASE_DESC }}
           draft: false
           prerelease: false
 
