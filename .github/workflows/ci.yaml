@@ -20,7 +20,7 @@ jobs:
         run: npm run build
 
       - name: Zip directory
-        run: zip -r ./release.zip /home/runner/work/vMenuDocs/vMenuDocs/site
+        run: zip -r ./release.zip ./site
 
       - name: Create Release
         id: create_release
