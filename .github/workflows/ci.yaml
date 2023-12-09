@@ -28,8 +28,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.PUBLIC_RELEASE }}
         with:
-          tag_name: v1.0.0
-          release_name: Release v1.0.0
+          tag_name: v1.0.1
+          release_name: Release v1.0.1
           body: |
             vMenu Revamped Docs v1
           draft: false
