@@ -20,7 +20,7 @@ jobs:
         run: npm run build
 
       - name: Zip directory
-        run: zip -r release.zip /home/runner/work/vMenuDocs/vMenuDocs/site
+        run: zip -r ./release.zip /home/runner/work/vMenuDocs/vMenuDocs/site
 
       - name: Create Release
         id: create_release
@@ -42,6 +42,6 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.PUBLIC_RELEASE }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: /home/runner/work/vMenuDocs/vMenuDocs/release.zip
+          asset_path: ./release.zip
           asset_name: release.zip
           asset_content_type: application/zip
