@@ -8,7 +8,7 @@ if defined _OLD_CODEPAGE (
     "%SystemRoot%\System32\chcp.com" 65001 > nul
 )
 
-set VIRTUAL_ENV=C:\Users\TBNR_\OneDrive\Desktop\vMenuDocs\venv
+set VIRTUAL_ENV=E:\Golden Development\Pre-made Files\FiveM\vMenu Revamped Docs\vMenuDocs\venv
 
 if not defined PROMPT set PROMPT=$P$G
 

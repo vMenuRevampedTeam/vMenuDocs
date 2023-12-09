@@ -1,6 +1,14 @@
-site_name: My Docs
+site_name: vMenu Documentation
+repo_url: https://github.com/vMenuRevampedTeam/vMenu
+repo_name: vMenuRevampedTeam/vMenu
 theme:
   name: material
+  language: en
+  icon:
+    logo: fontawesome/solid/terminal
+  font: 
+    code: Quicksand
+    text: Quicksand
   features:
     - content.code.annotate
     - content.code.copy
@@ -13,8 +21,18 @@ theme:
     - navigation.tabs
     - navigation.top
     - navigation.tracking
+    - content.tooltips
     - search.share
     - search.suggest
+
+  plugins: 
+    - typeset
+    - blog:
+        authors_profiles_toc: true
+        authors_profiles: true
+        blog_dir: changelog/posts
+    - search
+
   palette: 
 
     # Palette toggle for dark mode
@@ -32,3 +50,30 @@ theme:
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+copyright: Copyright &copy; Tom Grobbe  
+extra:
+  generator: false
+  social:
+    - icon: fontawesome/brands/discord
+      link: https://discord.gg/vespura-s-coding-paradise-285424882534187008
+    - icon: material/patreon
+      link: https://www.patreon.com/vespura
+    - icon: material/github
+      link: https://github.com/TomGrobbe  
+    - icon: material/email
+      link: mailto:contact@vespura.com
+
+nav:
+  - Home: index.md
+  - Yeet Page: yeet-page/index.md
