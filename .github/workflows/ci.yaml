@@ -19,8 +19,29 @@ jobs:
       - name: Build MkDocs site
         run: npm run build
 
-      - name: Deploy MkDocs site
-        uses: peaceiris/actions-gh-pages@v3
+      - name: Zip directory
+        run: zip -r release.zip /site
+
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          deploy_key: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: /site
+          tag_name: v1.0.0
+          release_name: Release v1.0.0
+          body: |
+            vMenu Revamped Docs v1
+          draft: false
+          prerelease: false
+
+      - name: Upload Release Asset
+        id: upload-release-asset
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: ./release.zip
+          asset_name: release.zip
+          asset_content_type: application/zip
