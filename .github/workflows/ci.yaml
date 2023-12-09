@@ -1,29 +1,20 @@
-name: Build and Zip
+name: MkDocs Build
 
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Build
+      - name: Build MkDocs site
         run: npm run build
 
-      - name: Zip site folder
-        run: |
-          zip -r site.zip site/
-          
-      - name: Upload Release Asset
-        id: upload-release-asset 
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Deploy MkDocs site
+        uses: peaceiris/actions-gh-pages@v3
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }} 
-          asset_path: ./site.zip
-          asset_name: site.zip
-          asset_content_type: application/zip
+          deploy_key: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: /site
