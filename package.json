@@ -1,0 +1,14 @@
+{
+  "name": "vmenudocs",
+  "version": "1.0.0",
+  "description": "",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "start": "mkdocs serve",
+    "build": "mkdocs build"
+  },
+  "author": "",
+  "license": "ISC"
+}
