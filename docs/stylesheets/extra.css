@@ -1,0 +1,33 @@
+@import "./custom.css";
+
+[data-md-color-scheme="slate"][data-md-color-primary="black"] {
+    --md-typeset-a-color: gold; /* or any other hex value */
+  }
+  [data-md-color-primary="black"] {
+    --md-typeset-a-color: gold; /* or any other hex value */
+  }
+
+
+a[data-md-component="source"] {
+  width: 280px;
+}
+
+.md-grid {
+  max-width: 90%; /* or 100%, if you want to stretch to full-width */
+}
+
+.md-sidebar__scrollwrap {
+  padding: 10px !important;
+  border-radius: 10px;
+  border: 1px solid gold;
+  height: auto !important;
+  background-image: url("/assets/bg.png");
+  background-size: 200px;
+  background-repeat: repeat;
+  background-clip: content-box;
+}
+
+.md-nav__title {
+  background-color: transparent !important;
+  font-size: 16px;
+}

@@ -1,17 +1,25 @@
+  # Project information
 site_name: vMenu Documentation
 repo_url: https://github.com/vMenuRevampedTeam/vMenu
 repo_name: vMenuRevampedTeam/vMenu
+copyright: Copyright &copy; Tom Grobbe  
+
+# Theme
 theme:
   name: material
-  language: en
+  custom_dir: overrides
   icon:
     logo: fontawesome/solid/terminal
+    repo: fontawesome/brands/github
   font: 
     code: Quicksand
     text: Quicksand
   features:
+    - navigation.top
     - content.code.annotate
     - content.code.copy
+    - content.action.edit
+    - content.action.view
     - content.tabs.link
     - header.autohide
     - announce.dismiss
@@ -25,43 +33,64 @@ theme:
     - search.share
     - search.suggest
 
-  plugins: 
-    - typeset
-    - blog:
-        authors_profiles_toc: true
-        authors_profiles: true
-        blog_dir: changelog/posts
-    - search
+  plugins:
+  - typeset
+  - search
+  - optimize
+  - git-committers:
+      enabled: true
+      repository: vMenuRevampedTeam/vMenu
+      branch: revamped
+  - git-authors
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - minify:
+      minify_html: false    
 
-  palette: 
-
-    # Palette toggle for dark mode
+  palette:
     - scheme: slate
       primary: black
       accent: amber
       toggle:
         icon: material/weather-night
-        name: Why would you like to burn your eyes?
+        name: Why are you trying to burn your eyes?!
 
-    # Palette toggle for light mode
-    - scheme: default
-      primary: amber
-      accent: blue
-      toggle:
-        icon: material/weather-sunny
-        name: Switch to dark mode
+# Additional CSS
+extra_css:
+  - stylesheets/extra.css
+  - stylesheets/custom.css
 
+hooks:
+  - docs/.hooks/badges.py  
+
+# Markdown extensions
 markdown_extensions:
   - admonition
   - pymdownx.details
   - pymdownx.superfences
+  - pymdownx.details
+  - md_in_html
+  - markdown.extensions.md_in_html:
   - pymdownx.snippets
   - attr_list
   - pymdownx.emoji:
       emoji_index: !!python/name:material.extensions.emoji.twemoji
       emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.blocks.admonition:
+      types:
+        - note
+        - abstract
+        - info
+        - tip
+        - success
+        - question
+        - warning
+        - failure
+        - danger
+        - bug
+        - example
+        - quote      
 
-copyright: Copyright &copy; Tom Grobbe  
 extra:
   generator: false
   social:
@@ -72,8 +101,4 @@ extra:
     - icon: material/github
       link: https://github.com/TomGrobbe  
     - icon: material/email
-      link: mailto:contact@vespura.com
-
-nav:
-  - Home: index.md
-  - Yeet Page: yeet-page/index.md
+      link: mailto:contact@vespura.com    
